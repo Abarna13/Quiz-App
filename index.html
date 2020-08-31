@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<htm>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap" rel="stylesheet">
+    <title>Quiz App</title>
+    <style>
+      body{
+        margin:0px;
+        padding:0px;
+       background: linear-gradient(90deg, rgba(151,157,177,1) 43%, rgba(255,255,255,1) 100%);
+        height: 100%;
+        width: 100%;
+      }
+      .quiz-app{
+        margin: 8px auto;
+        height: 560px;
+        width: 330px;
+        background-color:#252C4A;
+        border-style: solid;
+        border-width: 18px;
+        border-color:#282B49;
+        border-radius: 30px;
+      }
+      #code{
+        margin-left: 90px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color:#BFBFBF;
+      }
+      .time-bar{
+        margin:30px auto;
+        width: 300px;
+        height:30px;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 30px;
+        border-color: #41476A;
+        background-color:#252C4A;
+      }
+      .time-left{
+        width: 300px;
+        height:30px;
+        border-style: none;
+        border-radius: 30px;
+        border-color: rgb(250,81,113);
+        background-color: rgb(250,81,113);
+
+        
+      }
+      .time{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color:white;
+        text-align: center;
+      }
+      .q-text{
+        color:#8E97BD;
+        text-align: left;
+        margin-left:20px;
+        margin-top: 30px;
+         font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 20px;
+      }
+      #question{
+         font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 25px;
+        color:white;
+        padding:10px 20px 10px 20px;
+
+      }
+      .btn{
+        width: 250px;
+        height: 50px;
+        margin-bottom: 10px;
+        margin-left: 40px;
+         font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 15px;
+        border-style: solid;
+        border-width: 3px;
+        border-radius: 20px;
+        background-color:transparent;
+        color:white;
+        border-color: #254567;
+        outline:none;
+        
+        
+      }
+      .btn:hover{
+        background: linear-gradient(90deg, rgba(250,81,113,1) 46%, rgba(250,81,113,1) 50%, rgba(37,44,74,1) 100%);
+        
+      }
+      #next{
+        padding: 15px 40px 15px 40px;
+          font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 15px;
+        border-style: solid;
+        border-width: 3px;
+        border-radius: 30px;
+        background-color:#117EEB;
+        color:white;
+        border-color: #117EEB;
+        margin-left: 100px;
+        margin-top: 10px;
+        outline:none;
+
+
+      }
+      #next:hover{
+        background-color: white;
+        color:#117EEB;
+        border-color:white;
+      }
+      #dots{
+        color:#8E97BD;
+        margin-left: 20px;
+        margin-top: -20px;
+      }
+      .il{
+        color:white;
+        font-size: 100px;
+        margin-top:130px;
+        margin-left: 110px;
+      }
+      .app{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 35px;
+        color:white;
+        text-align: center;
+
+      }
+      
+      
+    </style>
+  </head>
+  <body>
+    <div class="main-div">
+        <div class="quiz-app">
+        <div class="start" id="start" style="display: block;">
+        <img src="image/click pic.jpg" height="120px" width="120px" class="il"/>
+        <h1 class="app">Quick Quiz</h1>
+        <p id="code"></p>
+        </div>
+          <div class="quiz" id="quiz-secreen" style="display:none;">          
+            <div class="time-bar">
+            <div class="time-left" id="timeLeft">
+            
+            </div>
+          </div>
+          <div class="question-no">
+            <h3 class="q-text">Questions<span id="currentQuestion"> 1</span> / <span id="totalQuestions">10</span></h3>
+            <h3 id="dots">.............................................................</h3>
+       </div>
+          <div class="qus">
+            <h1 id="question">Who is the first child of the john doe?</h1>
+
+          </div>
+          <div class="choices">
+            <button class="btn" id="opt1">Mark Angel</button>
+            <button class="btn" id="opt2">Mark Angel</button>
+            <button class="btn" id="opt3">Mark Angel</button>
+            <button class="btn" id="opt4">Mark Angel</button>
+
+          </div>
+          <div class="next-btn">
+            <button id="next">Next</button>
+          </div>
+        </div>
+        <div class="result" id="resultSecreen" style="display: none;">
+           <img src="https://www.thebalance.com/thmb/9ZzYR6X3OAdyc_4KkfU2_z71zRc=/2156x1390/filters:fill(auto,1)/GettyImages-1071746598-68674bc9508840c29d618637664fbd19.jpg" height="120px" width="120px" class="il"/>
+        <h1 class="app">Your Score : <span id="score">7</span></h1>
+        <p id="code"><font color="yellow">Team Work by:</font></p>
+        
+        <ul>
+        <li><font color="white">S.Mothikha</font></li><br>
+        <li><font color="white">T.Aishwarya</font></li><br>
+        <li><font color="white">M.Abarna</font></li><br>
+        </ul>
+
+
+        </div>
+        </div>
+    </div>
+    <script> 
+    var currentQuestion=0;
+    var totalScore=0;
+    var cQuestion=document.getElementById('currentQuestion');
+    var totalQuestions=document.getElementById('totalQuestions');
+    var splashSecreen=document.getElementById('start');
+    var quizScreen=document.getElementById('quiz-secreen');
+    var x=0;
+    var resultSecreen=document.getElementById('resultSecreen');
+    var timeLeft=document.getElementById('timeLeft');
+    var score=document.getElementById('score');
+    var question=document.getElementById('question');
+    var opt1=document.getElementById('opt1');
+    var opt2=document.getElementById('opt2');
+    var opt3=document.getElementById('opt3');
+    var opt4=document.getElementById('opt4');
+    var btn=document.getElementsByClassName('btn');
+    var next=document.getElementById('next');
+    var quizQuestions=[
+      {
+        question:"What character cannot be used in variable names?",
+        choice1:"Underscore sign",
+        choice2:"Special symbols (%,#,etc.)",
+        choice3:"Numbers",
+        choice4:"Letters",
+        ans:"Special symbols (%,#,etc.)",
+      },
+         {
+        question:"Which one is not true about variable naming conventions in JS?",
+        choice1:"JS variable names begin with letter or underscore character.",
+        choice2:"JS variable names are case sensitive.",
+        choice3:"Both of the above",
+        choice4:"None of the above",
+        ans:"None of the above",
+      },
+         {
+        question:"Which tag contains the JavaScript code?",
+        choice1:"script",
+        choice2:"style",
+        choice3:"body",
+        choice4:"code",
+        ans:"script",
+      },
+         {
+        question:"How does the single line comment look like?",
+        choice1:"// this is a comment",
+        choice2:"&& this is a comment",
+        choice3:"%%this is a comment",
+        choice4:"**this is a comment",
+        ans:"// this is a comment",
+      },
+         {
+        question:"Why is JS code being placed before the closing body tag?",
+        choice1:"To let web page fully load in the browser window",
+        choice2:"To comply with the standards",
+        choice3:"That's only possible way",
+        choice4:"All of the mentioned",
+        ans:"To let web page fully load in the browser window",
+      },
+         {
+        question:"Which of the following is a client-side JavaScript object?",
+        choice1:"File",
+        choice2:"Function",
+        choice3:"FileUpload",
+        choice4:"Time",
+        ans:"FileUpload",
+      },
+       {
+        question:"Which not-in method returns the character at specified index?",
+        choice1:"CharacterAt()",
+        choice2:"getCharAt()",
+        choice3:"charAt()",
+        choice4:"None of the Above",
+        ans:"None of the Above",
+      },
+       {
+        question:"How does a FOR Loop start?",
+        choice1:"for(i=0;i<=5)",
+        choice2:"for(i<=5;i++)",
+        choice3:"for i= 1 to 5",
+        choice4:"for(i=0;i<=5;i++)",
+        ans:"for(i=0;i<=5;i++)",
+      },
+      {
+        question:"JavaScript is interpreted by whom?",
+        choice1:"client",
+        choice2:"server",
+        choice3:"object",
+        choice4:"None of the Above",
+        ans:"client",
+      },
+      {
+        question:"Which of the following is not a reserved word in JavaScript?",
+        choice1:"interface",
+        choice2:"throws",
+        choice3:"program",
+        choice4:"short",
+        ans:"program",
+      }
+      ];
+    function nextQuestion(no){
+    Inter(300);
+    cQuestion.textContent=" "+(no+1);
+    totalQuestions.textContent=" "+quizQuestions.length;
+    console.log("number "+no);
+    question.textContent=quizQuestions[no].question;
+    opt1.textContent=quizQuestions[no].choice1;
+    opt2.textContent=quizQuestions[no].choice2;
+    opt3.textContent=quizQuestions[no].choice3;
+    opt4.textContent=quizQuestions[no].choice4;
+  }
+    var z=setInterval(function(){
+        if(x==1){
+          clearInterval(z);
+          splashSecreen.style.display="none";
+          quizScreen.style.display="block";
+          nextQuestion(currentQuestion);
+        }
+        x++;
+    },2000);
+    for(var i=0;i<btn.length;i++){
+      btn[i].onclick=function(){
+        if(this.textContent==quizQuestions[currentQuestion].ans){
+            totalScore++;
+            if(currentQuestion<9){
+            clearInterval(bar);
+            currentQuestion++;
+            nextQuestion(currentQuestion);
+            console.log(totalScore);
+            }else{
+              endSecreen;
+            }
+        }
+        else{
+          if(currentQuestion<9){
+            currentQuestion++;
+            clearInterval(bar);
+            nextQuestion(currentQuestion);
+            console.log(totalScore);
+            }else{
+              endSecreen();
+            }
+        }
+      }
+    }
+    var bar;
+    function endSecreen(){
+      quizScreen.style.display="none";
+      resultSecreen.style.display="block";
+      score.textContent=totalScore;
+    }
+    function Inter(set){
+    var statusTime=set;
+    timeLeft.style.width=statusTime+"px";
+    bar=setInterval(function(){
+     if(statusTime==0){
+         clearInterval(bar); 
+          if(currentQuestion<9){
+            currentQuestion++;
+            nextQuestion(currentQuestion);
+          }
+          else{
+            endSecreen();
+          } 
+           
+        }
+        timeLeft.style.width=statusTime+"px";
+        statusTime=statusTime-20;
+    },5000); 
+   }
+  next.onclick=function(){
+    if(currentQuestion<9){
+    currentQuestion++;
+    nextQuestion(currentQuestion);
+    }
+    else{
+      endSecreen();
+    }
+   
+  }
+    </script>
+  </body>
+</html>
